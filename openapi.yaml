@@ -43,15 +43,5 @@ paths:
                     example: "74839201"
                   status:
                     type: string
-                    example: "SUCCESSFUL"openapi: 3.0.0
-info:
-   title: MTN MomO api
-   version: 1.0.0
+                    example: "SUCCESSFUL"
 
-paths:
-   /momo/transfer:
-     post:
-       summary:TRansfer money
-         responses:
-           '200':
-             description: Success

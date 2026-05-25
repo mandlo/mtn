@@ -1,0 +1,22 @@
+name: Sync Docs to Confluence
+on:
+  push:
+    branches:
+      - main # Runs every time you push to your main branch
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout local code
+        uses: actions/checkout@v4
+
+      # Option A: For standard Markdown files (.md)
+      - name: Publish Markdown to Confluence
+        uses: markdown-confluence/publish-action@v5
+        with:
+          confluenceBaseUrl: https://telecomsbilling.atlassian.net  # Change to your Confluence URL
+          confluenceParentId: '1638401'                      # Change to your target Confluence Page ID
+          atlassianUserName: ${{ secrets.CONFLUENCE_EMAIL }}
+          atlassianApiToken: ${{ secrets.CONFLUENCE_TOKEN }}
+          folderToPublish: 'docs'                              # The folder where your .md files live
