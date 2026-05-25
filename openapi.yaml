@@ -1,0 +1,57 @@
+openapi: 3.0.0
+info:
+  title: MTN MoMo API
+  version: 1.0.0
+
+paths:
+  /momo/transfer:
+    post:
+      summary: Transfer money
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - amount
+                - currency
+                - payeeId
+              properties:
+                amount:
+                  type: string
+                  example: "100.00"
+                currency:
+                  type: string
+                  example: "UGX"
+                payeeId:
+                  type: string
+                  example: "256770000000"
+                customerReference:
+                  type: string
+                  example: "Ref123456"
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  transactionId:
+                    type: string
+                    example: "74839201"
+                  status:
+                    type: string
+                    example: "SUCCESSFUL"openapi: 3.0.0
+info:
+   title: MTN MomO api
+   version: 1.0.0
+
+paths:
+   /momo/transfer:
+     post:
+       summary:TRansfer money
+         responses:
+           '200':
+             description: Success
